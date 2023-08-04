@@ -7,9 +7,9 @@ import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
-import PageNotFound from "./pages/404/pageNotFound";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import PageNotFound from "./pages/404/PageNF";
 function App() {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const fetchByActor = () => {
-    fetchDataFromApi("/discover/movie",{with_cast:"976"});
+    fetchDataFromApi("/discover/movie", { with_cast: "976" });
   };
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
@@ -57,7 +57,7 @@ function App() {
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />
-        <Route path="/explore/:mediaType/:castId/:name" element={<Explore/>} />
+        <Route path="/explore/:mediaType/:castId/:name" element={<Explore />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
